@@ -10,18 +10,9 @@ from mpl_toolkits.axes_grid1.anchored_artists import AnchoredSizeBar
 pd.options.display.max_rows = 999
 
 ###Abrindo arquivo atualizado do github 
-#url = 'https://raw.githubusercontent.com/seade-R/dados-covid-sp/master/data/dados_covid_sp.csv'
+url = 'https://raw.githubusercontent.com/seade-R/dados-covid-sp/master/data/dados_covid_sp.csv'
 
-#df = pd.read_csv(url, sep=';')
-
-#print(df)
-
-#df.to_csv('C:\\Users\\JoãoGuilherme\\Desktop\\PYTHON\\COVID_SP\\dados.csv')
-
-
-###Abrindo arquivo já salvo, não atualizado para salvar um tempo 
-
-df = pd.read_csv('C:\\Users\\JoãoGuilherme\\Desktop\\PYTHON\\COVID_SP\\dados.csv', sep=',')
+df = pd.read_csv(url, sep=';')
 
 ###Removendo coluna não desejada
 
@@ -97,7 +88,10 @@ for i in lista_dias:
 ###Carregando arquivo shapefile na biblioteca geopandas
 ###Os arquivos shapefiles são fundamentais para a plotagem de mapas uma vez que eles detem
 ###informações geoespaciais à respeito dos territórios
-cidades = gpd.read_file(r'C:\Users\JoãoGuilherme\Desktop\PYTHON\COVID_SP\shapefiles\Brasil\São Paulo_Municipios_2020\SP_Municipios_2020.shp')
+
+url_IBGE = 'https://portaldemapas.ibge.gov.br/portal.php#mapa223145'
+###Descompactar arquivo em uma única pasta e abrir arquivo shp no geopandas
+cidades = gpd.read_file(r'C:\\SP_Municipios_2020.shp')
 cidades = cidades.set_index('CD_MUN')
 
 ###Lista para utilizar nas legendas do gráfico
@@ -284,5 +278,5 @@ for i in lista_dias:
 		ax1.add_artist(bar)
 
 		###Salvando figuras em pasta		
-		plt.savefig('C:\\Users\\JoãoGuilherme\\Desktop\\PYTHON\\COVID_SP\\figuras_covid\\{}'.format(semana))
-		#plt.savefig('C:\\Users\\JoãoGuilherme\\Desktop\\PYTHON\\COVID_SP\\figuras_covid\\bla')
+		plt.savefig('C:\\{}'.format(semana))
+		
