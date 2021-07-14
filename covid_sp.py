@@ -7,8 +7,6 @@ import datetime as dt
 from mpl_toolkits.axes_grid1 import make_axes_locatable
 from mpl_toolkits.axes_grid1.anchored_artists import AnchoredSizeBar
 
-pd.options.display.max_rows = 999
-
 ###Abrindo arquivo atualizado do github 
 url = 'https://raw.githubusercontent.com/seade-R/dados-covid-sp/master/data/dados_covid_sp.csv'
 
